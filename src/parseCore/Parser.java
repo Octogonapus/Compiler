@@ -1,3 +1,7 @@
+package parseCore;
+
+import parseCore.*;
+
 import java.util.*;
 
 /**
@@ -39,15 +43,17 @@ public class Parser
         }
     }
 
-    private boolean match(String token)
+    private TokenType.TokenTypes match(String token)
     {
         try
         {
-            return comments.match(token).isPresent() || literal.match(token).isPresent()
+            if (comments.match(token).isPresent())
+            {
 
-        } catch (TokenNotPresentException e)
+            }
+        }
+        catch (TokenNotPresentException e)
         {
-            e.printStackTrace();
         }
     }
 
